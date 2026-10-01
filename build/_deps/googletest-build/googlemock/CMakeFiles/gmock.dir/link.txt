@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -Wall -Wextra -Wpedantic -Werror -shared -Wl,--dependency-file=CMakeFiles/gmock.dir/link.d -Wl,-soname,libgmock.so.1.14.0 -o ../../../lib/libgmock.so.1.14.0 "CMakeFiles/gmock.dir/src/gmock-all.cc.o"  -Wl,-rpath,/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/lib: ../../../lib/libgtest.so.1.14.0

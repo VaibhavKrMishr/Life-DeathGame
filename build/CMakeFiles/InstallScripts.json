@@ -1,0 +1,18 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/cmake_install.cmake",
+		"/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps/sfml-build/cmake_install.cmake",
+		"/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps/sfml-build/src/SFML/cmake_install.cmake",
+		"/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps/sfml-build/src/SFML/System/cmake_install.cmake",
+		"/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps/sfml-build/src/SFML/Window/cmake_install.cmake",
+		"/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps/sfml-build/src/SFML/Network/cmake_install.cmake",
+		"/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps/sfml-build/src/SFML/Graphics/cmake_install.cmake",
+		"/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps/sfml-build/src/SFML/Audio/cmake_install.cmake",
+		"/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps/json-build/cmake_install.cmake",
+		"/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps/googletest-build/cmake_install.cmake",
+		"/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps/googletest-build/googlemock/cmake_install.cmake",
+		"/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps/googletest-build/googletest/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

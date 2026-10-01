@@ -1,0 +1,383 @@
+[Normal] (Align: LEFT (0)) 
+[Normal] (Align: LEFT (0)) SUMMER TRAINING/INTERNSHIP 
+[Heading 1] (Align: None) PROJECT REPORT 
+[Normal] (Align: CENTER (1)) (Term June-July 2026) on 
+[Heading 1] (Align: None) DSA using CPP 
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: CENTER (1)) Submitted by 
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: CENTER (1)) (Name of Student)
+[Normal] (Align: CENTER (1)) Registration Number
+[Normal] (Align: LEFT (0)) 	
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: CENTER (1)) Course Code: CSE343/CSE443 
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: CENTER (1)) Under the Guidance of
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: CENTER (1)) Mr. Subhanshu Kumar
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0)) School of Computer Science and Engineering 
+[Normal] (Align: LEFT (0)) Lovely Professional University 
+[Normal] (Align: RIGHT (2)) Jalandhar - Delhi G.T. Road, Phagwara, Punjab (India) - 144411 
+[Normal] (Align: LEFT (0)) 
+
+[Normal] (Align: None) 
+[Normal] (Align: LEFT (0)) CERTIFICATE 
+[Heading 1] (Align: None) ACKNOWLEDGEMENT 
+[Normal] (Align: None) I would like to express my sincere gratitude to Lovely Professional University for providing me with the opportunity to undertake this summer training under the guidance of esteemed Training Partner MIE Gurukul. 
+[Normal] (Align: None) I am especially thankful to Mr. Subhanshu Kumar, Trainer, for his constant support, expert insights, and valuable feedback throughout the training period. His mentorship played a key role in shaping my understanding of core programming concepts. 
+[Normal] (Align: None) I would also like to thank the School of Computer Science and Engineering for organizing and facilitating this training program, which helped me strengthen my foundation in Data Structures and Algorithms using C++. 
+[Normal] (Align: None) Lastly, I am grateful to my peers, friends, and family for their continued encouragement and support during this project. 
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: RIGHT (2)) Student Name 
+[Normal] (Align: RIGHT (2)) 
+[Heading 1] (Align: None) TABLE OF CONTENT 
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: None) Chapter 1: Introduction...........................................................................................…   5-10
+[Normal] (Align: None) Company profile ...................................................................................................... 5         Overview of training domain ...................................................................................... 5 Objective of the project ................................................................................................ 5-6
+[Normal] (Align: None) Topic covered…………………………………………………………………………6-10
+[Normal] (Align: None) Chapter 2: Training Overview ..................................................................................... 11-13 
+[Normal] (Align: None) Tools & technologies used ............................................................................................11   Areas covered during training ....................................................................................11 Daily/weekly work summary .................................................................................. 12-13 
+[Normal] (Align: None) Chapter 3: Project Details ............................................................................................ 14-15
+[Normal] (Align: None) Title of the project ...................................................................................................... 14 Problem definition ...................................................................................................... 14 Scope and objectives................................................................................................... 15 System Requirements ................................................................................................. 15 Data flow / UML Diagrams ......................................................................................... 15
+[Normal] (Align: None) Chapter 4: Implementation ............................................................................................. 16 
+[Normal] (Align: None) Methodology .......................................................................................................... 16-17 Code snippets (if needed) ........................................................................................ 17 
+[Normal] (Align: None) Chapter 5: Results and Discussion ............................................................................... 17-19
+[Normal] (Align: None) Output / Report ...................................................................................................... 17 Challenges faced ......................................................................................................18 Learnings .................................................................................................................. 19 
+[Normal] (Align: None) Chapter 6: Conclusion ....................................................................................................... 20
+[Heading 1] (Align: None) 
+[Normal] (Align: None) 
+[Normal] (Align: None) 
+[Heading 1] (Align: None) INTRODUCTION 
+[Normal] (Align: LEFT (0))  
+[Heading 2] (Align: None) Company Profile 
+[Normal (Web)] (Align: None) MIE Gurukul is an education and skill-development institute based in Nakodar, Punjab. It operates under the name MIE Gurukul – School of Learning and offers services spanning education, career development, study-abroad preparation, vocational training, and wellness. 
+[Heading 3] (Align: None) Key Areas of Work
+[Normal] (Align: None) Language & Test Preparation: IELTS, PTE, TOEFL and German language training. 
+[Normal] (Align: None) Study Abroad & Career Support: Visa guidance, MBBS-related guidance and education loans. 
+[Normal] (Align: None) Skill Development: Nanny training, basic computer courses, digital marketing and music. 
+[Normal] (Align: None) Academic Coaching: The institute also offers academic and competitive-examination support in subjects such as Mathematics, Physics, Chemistry, Biology and Vedic Mathematics. 
+[Normal] (Align: None) Yoga & Wellness: Yoga classes and wellness services are also offered through its Yoga & Wellness Centre.
+[Heading 2] (Align: None) Overview of Training Domain 
+[Normal] (Align: None) The training domain focused on Data Structures and Algorithms (DSA), a fundamental area in computer science that plays a critical role in efficient programming and problem-solving. It involves understanding the organization, management, and storage of data to perform operations like insertion, deletion, searching, and sorting effectively. 
+[Normal] (Align: None) The training emphasized the practical implementation of key data structures such as arrays, linked lists, stacks, queues, trees, and graphs using the C++ programming language. Along with that, standard algorithms including searching, sorting, and recursion were explored in depth. 
+[Normal] (Align: None) This domain forms the backbone of technical interviews, competitive programming, and real-world application development, making it a crucial area of focus for any aspiring software engineer. 
+[Normal] (Align: None) Topics covered in the course are as following:
+[Heading 2] (Align: None) Introduction to Data Structures and Algorithms
+[Normal (Web)] (Align: None) Description:
+Introduction to the fundamental concepts of Data Structures and Algorithms. Understanding how data is organized, stored, processed, and how algorithms are used to solve computational problems efficiently.
+[Normal (Web)] (Align: None) Programs Done:
+[Normal] (Align: None) Program to find the largest and smallest element in an array 
+[Normal] (Align: None) Program to calculate sum and average of array elements 
+[Normal] (Align: None) Program to search for an element in an array 
+[Normal] (Align: None) Program to reverse an array 
+[Normal] (Align: None) 
+[Heading 2] (Align: None) 2. Arrays
+[Normal (Web)] (Align: None) Description:
+Arrays are linear data structures used to store multiple elements of the same data type in contiguous memory locations. Basic operations such as traversal, insertion, deletion, searching, and updating were studied.
+[Normal (Web)] (Align: None) Programs Done:
+[Normal] (Align: None) Array traversal 
+[Normal] (Align: None) Insertion of an element in an array 
+[Normal] (Align: None) Deletion of an element from an array 
+[Normal] (Align: None) Finding duplicate elements 
+[Normal] (Align: None) Finding the second-largest element 
+[Normal] (Align: None) Reversing an array 
+[Normal] (Align: None) Merging two arrays 
+[Normal] (Align: None) 
+[Heading 2] (Align: None) 3. Strings
+[Normal (Web)] (Align: None) Description:
+Strings are sequences of characters. This topic covered common string operations and techniques for manipulating and analyzing text data.
+[Normal (Web)] (Align: None) Programs Done:
+[Normal] (Align: None) Reverse a string 
+[Normal] (Align: None) Check whether a string is a palindrome 
+[Normal] (Align: None) Count vowels and consonants 
+[Normal] (Align: None) Find the length of a string 
+[Normal] (Align: None) Count frequency of characters 
+[Normal] (Align: None) Compare two strings 
+[Normal] (Align: None) 
+[Heading 2] (Align: None) 4. Searching Algorithms
+[Normal (Web)] (Align: None) Description:
+Searching algorithms are used to locate a particular element in a data structure. Linear Search and Binary Search were studied along with their working principles and efficiency.
+[Normal (Web)] (Align: None) Programs Done:
+[Normal] (Align: None) Linear Search 
+[Normal] (Align: None) Binary Search 
+[Normal] (Align: None) Search for the first occurrence of an element 
+[Normal] (Align: None) Search for the last occurrence of an element 
+[Normal] (Align: None) 
+[Heading 2] (Align: None) 5. Sorting Algorithms
+[Normal (Web)] (Align: None) Description:
+Sorting is the process of arranging data in a specific order. Basic sorting algorithms were implemented and compared based on their working and time complexity.
+[Normal (Web)] (Align: None) Programs Done:
+[Normal] (Align: None) Bubble Sort 
+[Normal] (Align: None) Selection Sort 
+[Normal] (Align: None) Insertion Sort 
+[Normal] (Align: None) Sort an array in ascending order 
+[Normal] (Align: None) Sort an array in descending order 
+[Normal] (Align: None) 
+[Heading 2] (Align: None) 6. Recursion
+[Normal (Web)] (Align: None) Description:
+Recursion is a programming technique in which a function calls itself to solve smaller instances of the same problem. Base conditions and recursive calls were explored.
+[Normal (Web)] (Align: None) Programs Done:
+[Normal] (Align: None) Factorial using recursion 
+[Normal] (Align: None) Fibonacci series using recursion 
+[Normal] (Align: None) Sum of natural numbers using recursion 
+[Normal] (Align: None) Reverse a number using recursion 
+[Normal] (Align: None) Calculate power of a number using recursion 
+[Normal] (Align: None) 
+[Heading 2] (Align: None) 7. Linked List
+[Normal (Web)] (Align: None) Description:
+Linked Lists are dynamic linear data structures in which elements are stored in nodes connected through links. Operations such as insertion, deletion, and traversal were implemented.
+[Normal (Web)] (Align: None) Programs Done:
+[Normal] (Align: None) Create a singly linked list 
+[Normal] (Align: None) Traverse a linked list 
+[Normal] (Align: None) Insert a node at the beginning 
+[Normal] (Align: None) Insert a node at the end 
+[Normal] (Align: None) Insert a node at a specific position 
+[Normal] (Align: None) Delete a node 
+[Normal] (Align: None) Search for an element 
+[Normal] (Align: None) Reverse a linked list 
+[Normal] (Align: None) 
+[Heading 2] (Align: None) 8. Stack
+[Normal (Web)] (Align: None) Description:
+A Stack is a linear data structure that follows the LIFO (Last In, First Out) principle. Basic stack operations such as push, pop, and peek were implemented.
+[Normal (Web)] (Align: None) Programs Done:
+[Normal] (Align: None) Implement Stack using an array 
+[Normal] (Align: None) Push operation 
+[Normal] (Align: None) Pop operation 
+[Normal] (Align: None) Peek operation 
+[Normal] (Align: None) Check whether the stack is empty 
+[Normal] (Align: None) Reverse a string using Stack 
+[Normal] (Align: None) Parentheses matching using Stack 
+[Normal] (Align: None) 
+[Heading 2] (Align: None) 9. Queue
+[Normal (Web)] (Align: None) Description:
+A Queue follows the FIFO (First In, First Out) principle. The topic covered insertion and deletion operations and the implementation of queues using arrays.
+[Normal (Web)] (Align: None) Programs Done:
+[Normal] (Align: None) Implement Queue using an array 
+[Normal] (Align: None) Enqueue operation 
+[Normal] (Align: None) Dequeue operation 
+[Normal] (Align: None) Display queue elements 
+[Normal] (Align: None) Check whether the queue is empty/full 
+[Normal] (Align: None) Implement Circular Queue 
+[Normal] (Align: None) 
+[Heading 2] (Align: None) 10. Trees
+[Normal (Web)] (Align: None) Description:
+Trees are non-linear hierarchical data structures. The basic terminology of trees, binary trees, traversal techniques, and Binary Search Trees were introduced.
+[Normal (Web)] (Align: None) Programs Done:
+[Normal] (Align: None) Create a Binary Tree 
+[Normal] (Align: None) Inorder Traversal 
+[Normal] (Align: None) Preorder Traversal 
+[Normal] (Align: None) Postorder Traversal 
+[Normal] (Align: None) Insert elements in a Binary Search Tree 
+[Normal] (Align: None) Search an element in a Binary Search Tree 
+[Normal] (Align: None) 
+[Heading 2] (Align: None) 11. Graphs
+[Normal (Web)] (Align: None) Description:
+Graphs are non-linear data structures consisting of vertices and edges. Basic graph representation and traversal techniques were introduced.
+[Normal (Web)] (Align: None) Programs Done:
+[Normal] (Align: None) Represent a graph using an adjacency matrix 
+[Normal] (Align: None) Represent a graph using an adjacency list 
+[Normal] (Align: None) Breadth First Search (BFS) 
+[Normal] (Align: None) Depth First Search (DFS) 
+[Normal] (Align: None) 
+[Heading 2] (Align: None) 12. Time and Space Complexity
+[Normal (Web)] (Align: None) Description:
+The efficiency of algorithms was studied using time complexity and space complexity. Common complexity classes such as O(1), O(n), O(log n), and O(n²) were introduced.
+[Normal (Web)] (Align: None) Programs/Exercises Done:
+[Normal] (Align: None) Analyze complexity of searching algorithms 
+[Normal] (Align: None) Analyze complexity of sorting algorithms 
+[Normal] (Align: None) Compare Linear Search and Binary Search 
+[Normal] (Align: None) Identify best, average, and worst-case complexity.
+[Heading 2] (Align: None) Overview of the Project 
+[Normal] (Align: None) The project titled “Scholarship Allocation Optimizer using C++” was developed to design an efficient and transparent system for distributing scholarship funds based on academic merit and financial need. It was created as part of a practical application of Data Structures and Algorithms (DSA) combined with modern web technologies. 
+[Normal (Web)] (Align: JUSTIFY (3))  The backend is built in C++ and uses key DSA concepts such as:
+[Normal (Web)] (Align: JUSTIFY (3)) Structures to represent student data
+[Normal (Web)] (Align: JUSTIFY (3)) Sorting and priority queues for ranking students
+[Normal (Web)] (Align: JUSTIFY (3)) File handling for input/output in JSON format
+[Normal (Web)] (Align: JUSTIFY (3)) Mathematical logic for proportional, fixed tier, and hybrid fund allocation strategies
+[Normal] (Align: None)  The frontend, developed using HTML, CSS, and JavaScript, allows users to:
+[Normal] (Align: None) Input student records and allocation settings
+[Normal] (Align: None) Choose allocation strategy
+[Normal] (Align: None) View ranked results and fund distribution
+[Normal] (Align: None) Export and visualize data using interactive charts
+[Normal] (Align: None) This project demonstrates practical use of DSA to solve a real-world problem, while also incorporating clean UI design and user interaction through a simulated frontend-backend workflow.
+[Normal] (Align: None) 
+[Normal] (Align: LEFT (0)) 
+[Normal] (Align: None) 
+[Heading 1] (Align: None) TRAINING OVERVIEW 
+[Normal] (Align: LEFT (0))  
+[Heading 2] (Align: None) Tools and Technologies Used 
+[Normal] (Align: None) Programming Language: C++ 
+[Normal] (Align: LEFT (0)) Used for developing the entire application. C++ provided efficient handling of data structures like vectors, sets, and strings, along with file I/O capabilities for reading and writing the question paper. 
+[Normal] (Align: None) Integrated Development Environment (IDE): Code: Blocks / Visual Studio 
+[Normal] (Align: LEFT (0)) Code (whichever you used) 
+[Normal] (Align: None) Used for writing, compiling, and debugging C++ code. It offered syntax highlighting, auto-completion, and easy build configuration. 
+[Normal] (Align: None) Text Editor: Notepad / VS Code 
+[Normal] (Align: None) Used for creating and editing the raw question bank (questions.txt) that served as the input data source. 
+[Normal] (Align: None) Compiler: GCC (GNU Compiler Collection) 
+[Normal] (Align: None) Used to compile and run C++ programs. Provided compatibility and standard compliance with modern C++ features. 
+[Normal] (Align: LEFT (0)) Charting Library: Chart.js
+Integrated into the frontend to visualize scholarship allocation using bar and pie charts for better clarity and insight.
+[Normal] (Align: LEFT (0)) File Handling: JSON I/O
+Student data and allocation results are read and written using JSON files, allowing smooth data exchange between the C++ backend and the web-based frontend.
+[Heading 2] (Align: None) Areas Covered During Training 
+[Normal] (Align: None) The training primarily focused on building a strong foundation in Data Structures and Algorithms (DSA) using C++. The key areas covered during the internship include: 
+[Normal] (Align: None) Introduction to Data Structures 
+[Normal] (Align: None) Understanding the importance and use cases of various data structures in programming and problem solving. 
+[Normal] (Align: None) Arrays and Strings 
+[Normal] (Align: None) Learned how to store, manipulate, and access elements efficiently, including basic string operations and traversals. 
+[Normal] (Align: None) Vectors (Dynamic Arrays) 
+[Normal] (Align: None) Explored the use of C++ STL vectors for flexible and dynamic data storage. 
+[Normal] (Align: None) Structures (struct) 
+[Normal] (Align: None) Used to group related data (such as ID, text, topic, marks) in a custom format for real-world representation. 
+[Normal] (Align: None) Sets 
+[Normal] (Align: None) Learned to use std: set to store unique topics and perform fast lookups. 
+[Normal] (Align: None) Basic Algorithms 
+[Normal] (Align: None) Gained exposure to searching, filtering, and logic-building techniques through hands-on coding tasks. 
+[Normal] (Align: None) File Handling in C++ 
+[Normal] (Align: None) Practiced reading and writing data to text files for input/output operations in real projects. 
+[Normal] (Align: None) Modular Programming 
+[Normal] (Align: None) Understood the separation of logic using header and source files to maintain code structure and readability. 
+[Normal] (Align: LEFT (0))  
+[Heading 2] (Align: None) Daily/Weekly Summary 
+[Normal] (Align: None) During the training, we covered the core concepts of Data Structures and Algorithms (DSA) using C++. The sessions were structured weekly and included both theory and coding practice. 
+[Normal] (Align: None) Topics covered included: 
+[Normal] (Align: None) Arrays, strings, and functions 
+[Normal] (Align: None) Vectors, stacks, and queues 
+[Normal] (Align: None) Trees and Binary Search Trees (BST) 
+[Normal] (Align: None) Heaps and priority queues 
+[Normal] (Align: None) Hashing and searching algorithms 
+[Normal] (Align: None) File handling and modular programming 
+[Normal] (Align: None) In the final weeks, the knowledge gained was applied to develop a project titled Automated Exam Paper Generator, where DSA concepts were used to filter and select questions based on user inputs. 
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: None) 
+[Normal] (Align: LEFT (0)) 
+[Heading 1] (Align: None) PROJECT DETAILS 
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0)) Title of the Project 
+[Normal] (Align: None) Scholarship Allocation Optimizer 
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0))  
+[Heading 2] (Align: None)  Problem Definition 
+[Normal] (Align: LEFT (0)) Manually allocating scholarship funds based on merit and financial need is often inconsistent, time-consuming, and prone to bias. Committees must evaluate students across multiple criteria, rank them fairly, and ensure the distribution fits within a limited budget. This process becomes more complex when trying to balance equity (fair minimums) with performance-based rewards.
+[Normal] (Align: LEFT (0)) The problem is to develop an automated, rules-based system that:
+[Normal] (Align: LEFT (0)) Accepts student data (merit score, need score)
+[Normal] (Align: LEFT (0)) Applies user-defined settings (total fund, number of awards, weightages)
+[Normal] (Align: LEFT (0)) Ranks students based on a composite score
+[Normal] (Align: LEFT (0)) Allocates funds using a selected strategy (Proportional, Fixed Tiers, or Hybrid)
+[Normal] (Align: LEFT (0)) The goal is to ensure:
+[Normal] (Align: LEFT (0)) Transparent and fair allocation
+[Normal] (Align: LEFT (0)) Compliance with defined fund limits
+[Normal] (Align: LEFT (0)) Flexibility across different allocation policies
+[Normal] (Align: LEFT (0)) This project simplifies the decision-making process by using C++ and DSA concepts to implement the backend logic and HTML/CSS/JavaScript for an interactive frontend experience.
+[Normal] (Align: LEFT (0)) 
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0)) 
+[Normal] (Align: LEFT (0)) 
+[Heading 2] (Align: None) Scope and Objectives 
+[Normal] (Align: LEFT (0)) This project aims to develop an application that automates the allocation of scholarship funds based on user-defined settings and student data. The system supports various allocation strategies—Proportional, Fixed Tiers, and Hybrid—ensuring flexibility, fairness, and transparency.
+[Normal] (Align: LEFT (0)) The scope includes building a C++ backend for ranking and distributing funds using core Data Structures and Algorithms (DSA) such as priority queues, sorting, and file handling, along with a web-based frontend using HTML, CSS, and JavaScript for user interaction, data entry, and result visualization.
+[Normal] (Align: LEFT (0)) The main objectives are:
+[Normal] (Align: LEFT (0)) To calculate composite scores using merit and need weights
+[Normal] (Align: LEFT (0)) To automate student ranking and fund distribution
+[Normal] (Align: LEFT (0)) To support multiple allocation strategies within budget limits
+[Normal] (Align: LEFT (0)) To demonstrate real-world application of DSA through an integrated system
+[Normal] (Align: LEFT (0)) This project bridges algorithmic thinking with interactive design, showcasing the practical use of C++ and web technologies in solving an educational funding problem.
+[Normal] (Align: LEFT (0)) . 
+[Heading 2] (Align: None) System Requirements 
+[Normal (Web)] (Align: None) Operating System: Windows 10 / 11 or Ubuntu (Linux-based systems)
+[Normal (Web)] (Align: None) Processor: Intel Core i3 or higher
+[Normal (Web)] (Align: None) RAM: Minimum 4 GB (Recommended: 8 GB for smooth performance)
+[Normal (Web)] (Align: None) Compiler: GCC (GNU Compiler Collection) or any modern C++ compatible compiler
+[Normal (Web)] (Align: None) IDE: Visual Studio Code, Code::Blocks, or any C++-friendly development environment
+[Normal (Web)] (Align: None) Frontend Browser: Any modern browser (e.g., Chrome, Firefox) for viewing the web interface
+[Normal (Web)] (Align: None) Storage: Minimal disk space for input/output JSON or CSV files (text-based file I/O)
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0))  
+[Heading 2] (Align: None) 
+[Heading 2] (Align: None) 
+[Normal] (Align: None) 
+[Heading 2] (Align: None) UML Diagrams 
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0)) 
+[Normal] (Align: LEFT (0))  
+[Heading 1] (Align: None) 
+[Heading 1] (Align: JUSTIFY (3)) 
+[Normal] (Align: None) 
+[Normal] (Align: None) 
+[Heading 1] (Align: None) IMPLEMENTATION 
+[Normal] (Align: LEFT (0))  
+[Heading 2] (Align: None) Methodology 
+[Normal] (Align: None) The project follows a modular and procedural programming approach using C++. The overall workflow is divided into clear steps to maintain simplicity and efficiency: 
+[Normal] (Align: None) 
+[Normal] (Align: None) Data Input 
+[Normal] (Align: None) Student details (Name, Merit Score, Need Score) are input through the frontend interface or uploaded via a CSV file.
+[Normal] (Align: None) Input data is converted to JSON and saved as input.json, which the C++ backend reads for processing.
+[Normal] (Align: None) User Interaction 
+[Normal] (Align: None) The user selects the total scholarship fund, number of students to be awarded, and the allocation strategy (Proportional, Fixed Tier, or Hybrid). 
+[Normal] (Align: None) Merit and need weight percentages are also provided to customize the composite score calculation. 
+[Normal] (Align: None) Filtering Process 
+[Normal] (Align: None) The C++ program calculates the Composite Score for each student. 
+[Normal] (Align: None) Scores are stored with each student in a data structure (e.g., struct Student).
+[Normal] (Align: None) Fund Allocation
+[Normal] (Align: None) Based on the selected strategy:
+[Normal] (Align: None) Proportional: Funds are distributed in ratio to composite scores, capped at Total Fund ÷ N.
+[Normal] (Align: None) Fixed Tier: Students are divided into tiers and awarded fixed amounts based on rank.
+[Normal] (Align: None) Hybrid: Each student gets a base amount; the remaining fund is distributed proportionally.
+[Normal] (Align: None) Result Display
+[Normal] (Align: None) The frontend reads the output.json file and displays:
+[Normal] (Align: None) 
+[Normal] (Align: None) This method ensures the code remains modular, reusable, and easy to understand, while demonstrating the practical application of DSA concepts. 
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: RIGHT (2))  
+[Normal] (Align: LEFT (0))  
+[Heading 1] (Align: None) RESULT AND DISCUSSION 
+[Heading 2] (Align: None) Output/Report 
+[Normal] (Align: None) The output of the project is a customized scholarship allocation report, generated based on the user’s input parameters. After the user provides the total fund amount, number of students to be awarded, composite score weightings, and the preferred allocation strategy, the system processes the input and produces a structured result. 
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0)) 
+[Normal] (Align: RIGHT (2))  
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0)) 
+[Normal] (Align: LEFT (0)) 
+[Normal] (Align: LEFT (0)) 
+[Normal] (Align: LEFT (0)) 
+[Normal] (Align: LEFT (0)) 
+[Normal] (Align: LEFT (0)) 
+[Normal] (Align: LEFT (0)) 
+[Heading 2] (Align: None) Challenges faced 
+[Normal] (Align: None) While working on the project, I encountered both conceptual and practical challenges that pushed me to think deeper and debug smarter: 
+[Normal] (Align: LEFT (0)) File Handling in C++: Reading from and writing to .txt files using ifstream and ofstream initially caused issues with data alignment and newline characters. I had to revise my file structure and experiment with getline () and ignore () to avoid skipping lines or corrupting data. 
+[Normal] (Align: LEFT (0)) Data Format Issues: In the early version of the question bank, questions were not uniformly structured. Some had missing topics, inconsistent spacing, or special characters. I had to manually clean and format the questions.txt file for smooth parsing. 
+[Normal] (Align: LEFT (0)) Dynamic Input Parsing: Parsing comma-separated values for difficulty levels and topics required converting strings to vectors and trimming whitespaces. I built helper functions to handle edge cases like extra commas, capital letters, or blank spaces. 
+[Normal] (Align: LEFT (0)) Mark Matching Logic (Subset Problem): Selecting a valid subset of questions that exactly matched the total marks became a mini-algorithm challenge. I implemented a brute-force approach and optimized it with early exits to avoid long execution time for large input sets. 
+[Normal] (Align: LEFT (0)) Practical Fixes & Tweaks: 
+[Normal] (Align: None) Added error messages when no valid question set matched the criteria. 
+[Normal] (Align: None) Included a feature to list available topics when the user types list. 
+[Normal] (Align: None) Created an output folder to organize the generated files instead of cluttering the root directory. 
+[Normal] (Align: None) Changed logic to ignore case sensitivity and whitespace in topic matching. 
+[Normal] (Align: None) These challenges made the project not just an exercise in coding, but in problem- solving and debugging under realistic conditions. Every bug and failed run brought me a step closer to understanding the logic behind the system. 
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: LEFT (0))  
+[Heading 2] (Align: None) Learning 
+[Normal] (Align: LEFT (0)) This project provided me with practical exposure to applying Data Structures and Algorithms (DSA) in real-world scenarios. I learned how to structure a C++ project using header and source files, work with file I/O operations, and handle user-defined filters efficiently. Implementing logical operations like filtering and mark-matching helped reinforce my understanding of vectors, sets, and control structures. 
+[Normal] (Align: None) Additionally, I gained valuable experience in modular programming, debugging, and designing user-friendly console applications. Beyond code, this training also taught me how to think critically, solve problems independently, and communicate technical outcomes in a structured manner. 
+[Normal] (Align: LEFT (0))  
+[Normal] (Align: None) 
+[Heading 1] (Align: None) CONCLUSION 
+[Heading 2] (Align: None) Conclusion 
+[Normal (Web)] (Align: None) The Scholarship Allocation Optimizer successfully fulfills its objective of distributing scholarship funds fairly and transparently based on user-defined parameters such as total fund, number of recipients, and allocation strategy (Proportional, Fixed Tiers, or Hybrid).
+[Normal (Web)] (Align: None) By leveraging C++ and core DSA concepts, the system effectively ranks students, calculates composite scores, and applies structured allocation logic. The integration with a web-based frontend ensures an intuitive user experience and visually rich result presentation.
+[Normal (Web)] (Align: None) This project not only strengthened my technical understanding of data structures, algorithms, and file handling, but also demonstrated how thoughtful design and logic can automate and improve complex decision-making processes. It stands as a practical, real-world application of academic learning—showing how software can contribute to fairness, efficiency, and impact in educational systems.
+[Normal] (Align: None)  
