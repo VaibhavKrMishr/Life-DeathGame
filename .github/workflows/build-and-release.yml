@@ -50,6 +50,7 @@ jobs:
 
       - name: Run tests
         run: ctest --test-dir build -C Release --output-on-failure
+        
 
       - name: Package Windows
         shell: pwsh
