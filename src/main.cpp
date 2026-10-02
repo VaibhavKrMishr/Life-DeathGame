@@ -19,7 +19,10 @@ int main() {
     // Default to sparse mode for infinite universe support and performance
     simulation.setSparseMode(true);
     
-    Camera camera(sf::Vector2f(window.getSize().x, window.getSize().y));
+    Camera camera(sf::Vector2f(
+    static_cast<float>(window.getSize().x),
+    static_cast<float>(window.getSize().y)
+));
     Renderer renderer;
     
     AppState appState;
