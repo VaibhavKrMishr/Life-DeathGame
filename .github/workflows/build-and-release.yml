@@ -1,17 +1,22 @@
-name: Build & Release
+name: Build and Release
 
 on:
   push:
-    branches: [main]
-    tags: ["v*"]
+    branches:
+      - main
+    tags:
+      - "v*"
   pull_request:
-    branches: [main]
+    branches:
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   build-windows:
+    name: Build Windows
     runs-on: windows-latest
 
     steps:
@@ -21,132 +26,109 @@ jobs:
       - name: Setup CMake
         uses: lukka/get-cmake@latest
 
-      - name: Configure
-        run: |
-          cmake -S . -B build `
-            -DCMAKE_BUILD_TYPE=Release `
-            -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+      - name: Configure CMake
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 
       - name: Build
-        run: |
-          cmake --build build --config Release --parallel
+        run: cmake --build build --config Release --parallel
+
+      - name: Run tests
+        run: ctest --test-dir build -C Release --output-on-failure
 
       - name: Package Windows
         shell: pwsh
         run: |
-          New-Item -ItemType Directory -Force package/GameOfLife-Windows
+          New-Item -ItemType Directory -Force -Path artifacts
+          Copy-Item "build/Release/GameOfLife.exe" "artifacts/GameOfLife-Windows.exe"
 
-          $exe = Get-ChildItem build -Filter GameOfLife.exe -Recurse |
-            Select-Object -First 1
-
-          if (-not $exe) {
-            Write-Error "GameOfLife.exe not found!"
-            exit 1
-          }
-
-          Copy-Item $exe.FullName package/GameOfLife-Windows/
-
-          if (Test-Path assets) {
-            Copy-Item -Recurse assets package/GameOfLife-Windows/
-          }
-
-          Get-ChildItem build -Filter "*.dll" -Recurse |
-            ForEach-Object {
-              Copy-Item $_.FullName package/GameOfLife-Windows/ -Force
-            }
-
-      - name: Upload Windows
+      - name: Upload Windows artifact
         uses: actions/upload-artifact@v4
         with:
           name: GameOfLife-Windows
-          path: package/GameOfLife-Windows/
+          path: artifacts/GameOfLife-Windows.exe
 
 
   build-linux:
+    name: Build Linux
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Setup CMake
-        uses: lukka/get-cmake@latest
-
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
+            build-essential \
             libx11-dev \
             libxrandr-dev \
             libxcursor-dev \
             libxi-dev \
             libudev-dev \
-            libgl1-mesa-dev \
-            libfreetype-dev \
             libopenal-dev \
+            libflac-dev \
             libvorbis-dev \
-            libflac-dev
+            libgl1-mesa-dev \
+            libfreetype6-dev
 
-      - name: Configure
-        run: |
-          cmake -S . -B build \
-            -DCMAKE_BUILD_TYPE=Release \
-            -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+      - name: Setup CMake
+        uses: lukka/get-cmake@latest
+
+      - name: Configure CMake
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 
       - name: Build
-        run: |
-          cmake --build build --config Release --parallel
+        run: cmake --build build --parallel
+
+      - name: Run tests
+        run: ctest --test-dir build --output-on-failure
 
       - name: Package Linux
         run: |
-          mkdir -p package/GameOfLife-Linux
+          mkdir -p artifacts
+          cp build/GameOfLife artifacts/GameOfLife-Linux
+          chmod +x artifacts/GameOfLife-Linux
 
-          cp build/GameOfLife package/GameOfLife-Linux/
-
-          if [ -d assets ]; then
-            cp -r assets package/GameOfLife-Linux/
-          fi
-
-      - name: Upload Linux
+      - name: Upload Linux artifact
         uses: actions/upload-artifact@v4
         with:
           name: GameOfLife-Linux
-          path: package/GameOfLife-Linux/
+          path: artifacts/GameOfLife-Linux
 
 
   release:
-    if: startsWith(github.ref, 'refs/tags/v')
+    name: Create Release
     needs:
       - build-windows
       - build-linux
-
     runs-on: ubuntu-latest
 
+    if: startsWith(github.ref, 'refs/tags/v')
+
     steps:
-      - name: Download Windows
-        uses: actions/download-artifact@v4
+      - name: Download Windows artifact
+        uses: actions/download-artifact@v5
         with:
           name: GameOfLife-Windows
-          path: windows
+          path: release
 
-      - name: Download Linux
-        uses: actions/download-artifact@v4
+      - name: Download Linux artifact
+        uses: actions/download-artifact@v5
         with:
           name: GameOfLife-Linux
-          path: linux
+          path: release
 
-      - name: Create packages
+      - name: Create ZIP files
         run: |
-          cd windows
-          zip -r ../GameOfLife-Windows.zip .
+          cd release
 
-          cd ../linux
-          tar -czf ../GameOfLife-Linux.tar.gz .
+          zip GameOfLife-Windows.zip GameOfLife-Windows.exe
+          zip GameOfLife-Linux.zip GameOfLife-Linux
 
-      - name: Create Release
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          generate_release_notes: true
           files: |
-            GameOfLife-Windows.zip
-            GameOfLife-Linux.tar.gz
+            release/GameOfLife-Windows.zip
+            release/GameOfLife-Linux.zip
