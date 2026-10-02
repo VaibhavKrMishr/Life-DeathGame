@@ -1,3 +1,0 @@
-/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps/googletest-subbuild/CMakeFiles/googletest-populate.dir
-/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps/googletest-subbuild/CMakeFiles/edit_cache.dir
-/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps/googletest-subbuild/CMakeFiles/rebuild_cache.dir
