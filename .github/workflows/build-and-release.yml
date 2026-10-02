@@ -2,111 +2,120 @@ name: Build & Release
 
 on:
   push:
-    branches: [main]
-    tags: ['v*']
+    branches:
+      - main
+    tags:
+      - "v*"
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 permissions:
   contents: write
 
 jobs:
-  # ─────────────────────────────────────────────
-  # Windows Build
-  # ─────────────────────────────────────────────
+  # ==========================================
+  # WINDOWS
+  # ==========================================
   build-windows:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v5
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+          submodules: false
 
-      - name: Setup CMake
-        uses: lukka/get-cmake@latest
+      - name: Install dependencies
+        shell: powershell
+        run: |
+          choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' -y
 
-      - name: Configure CMake
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Configure
+        shell: powershell
+        run: |
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 
       - name: Build
-        run: cmake --build build --config Release -j 4
-
-      - name: Package Windows release
-        shell: pwsh
+        shell: powershell
         run: |
-          New-Item -ItemType Directory -Force -Path "package/GameOfLife-Windows"
+          cmake --build build --config Release --parallel
 
-          # Find executable regardless of generator/output directory
-          $exe = Get-ChildItem -Path "build" -Filter "GameOfLife.exe" -Recurse |
-                 Select-Object -First 1
+      - name: Find executable
+        shell: powershell
+        run: |
+          Write-Host "Searching for GameOfLife.exe..."
+          Get-ChildItem -Path build -Filter GameOfLife.exe -Recurse
+
+      - name: Package Windows
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Force -Path package/GameOfLife-Windows
+
+          $exe = Get-ChildItem `
+            -Path build `
+            -Filter GameOfLife.exe `
+            -Recurse |
+            Select-Object -First 1
 
           if (-not $exe) {
             Write-Error "GameOfLife.exe was not found!"
             exit 1
           }
 
-          Copy-Item $exe.FullName "package/GameOfLife-Windows/"
+          Copy-Item $exe.FullName package/GameOfLife-Windows/
 
-          # Copy DLLs
-          Get-ChildItem -Path "build" -Filter "*.dll" -Recurse |
-            ForEach-Object {
-              Copy-Item $_.FullName "package/GameOfLife-Windows/" -Force
-            }
-
-          # Copy assets
-          if (Test-Path "assets") {
-            Copy-Item -Recurse "assets" "package/GameOfLife-Windows/assets"
+          if (Test-Path assets) {
+            Copy-Item -Recurse assets package/GameOfLife-Windows/
           }
 
           @"
-          ===================================
-            Conway's Game of Life
-          ===================================
+          Conway's Game of Life
+          =====================
 
-          Double-click GameOfLife.exe to play!
+          Run GameOfLife.exe
 
           Controls:
-            Space         - Play / Pause
-            Right Arrow   - Step one generation
-            Left Drag     - Draw cells
-            Right Drag    - Erase cells
-            Middle Drag   - Pan camera
-            Scroll Wheel  - Zoom
-            1-4           - Place patterns
-            C             - Clear grid
-            R             - Randomize
-            G             - Toggle grid lines
-            S             - Save to save.json
-            L             - Load from save.json
-          "@ | Out-File "package/GameOfLife-Windows/README.txt"
+            Space       Play / Pause
+            Right Arrow Step
+            Left Drag   Draw
+            Right Drag  Erase
+            Middle Drag Pan
+            Wheel       Zoom
+            C           Clear
+            R           Randomize
+            G           Grid
+            S           Save
+            L           Load
+          "@ | Out-File package/GameOfLife-Windows/README.txt
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v4
         with:
           name: GameOfLife-Windows
-          path: package/GameOfLife-Windows/
+          path: package/GameOfLife-Windows
 
 
-  # ─────────────────────────────────────────────
-  # Linux Build
-  # ─────────────────────────────────────────────
+  # ==========================================
+  # LINUX
+  # ==========================================
   build-linux:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v5
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+          submodules: false
 
-      - name: Setup CMake
-        uses: lukka/get-cmake@latest
-
-      - name: Install system dependencies
+      - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
+            cmake \
+            build-essential \
             libx11-dev \
             libxrandr-dev \
             libxcursor-dev \
@@ -118,20 +127,22 @@ jobs:
             libvorbis-dev \
             libflac-dev
 
-      - name: Configure CMake
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Configure
+        run: |
+          cmake -S . -B build \
+            -DCMAKE_BUILD_TYPE=Release
 
       - name: Build
-        run: cmake --build build --config Release -j $(nproc)
+        run: |
+          cmake --build build --config Release --parallel
 
-      - name: Package Linux release
+      - name: Package Linux
         run: |
           mkdir -p package/GameOfLife-Linux
 
           if [ ! -f build/GameOfLife ]; then
-            echo "ERROR: build/GameOfLife was not found!"
-            echo "Build directory contents:"
-            find build -maxdepth 3 -type f
+            echo "GameOfLife executable not found"
+            find build -type f
             exit 1
           fi
 
@@ -141,42 +152,16 @@ jobs:
             cp -r assets package/GameOfLife-Linux/
           fi
 
-          cat > package/GameOfLife-Linux/README.txt << 'EOF'
-          ===================================
-            Conway's Game of Life
-          ===================================
-
-          To run:
-            chmod +x GameOfLife
-            ./GameOfLife
-
-          You may need to install SFML runtime libraries.
-
-          Controls:
-            Space         - Play / Pause
-            Right Arrow   - Step one generation
-            Left Drag     - Draw cells
-            Right Drag    - Erase cells
-            Middle Drag   - Pan camera
-            Scroll Wheel  - Zoom
-            1-4           - Place patterns
-            C             - Clear grid
-            R             - Randomize
-            G             - Toggle grid lines
-            S             - Save to save.json
-            L             - Load from save.json
-          EOF
-
       - name: Upload Linux artifact
         uses: actions/upload-artifact@v4
         with:
           name: GameOfLife-Linux
-          path: package/GameOfLife-Linux/
+          path: package/GameOfLife-Linux
 
 
-  # ─────────────────────────────────────────────
-  # Create GitHub Release
-  # ─────────────────────────────────────────────
+  # ==========================================
+  # RELEASE
+  # ==========================================
   release:
     if: startsWith(github.ref, 'refs/tags/v')
     needs:
@@ -186,18 +171,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download all artifacts
+      - name: Download Windows
         uses: actions/download-artifact@v4
         with:
-          path: artifacts/
+          name: GameOfLife-Windows
+          path: windows
 
-      - name: Zip platform packages
+      - name: Download Linux
+        uses: actions/download-artifact@v4
+        with:
+          name: GameOfLife-Linux
+          path: linux
+
+      - name: Create packages
         run: |
-          cd artifacts
+          cd windows
+          zip -r ../GameOfLife-Windows.zip .
 
-          zip -r ../GameOfLife-Windows.zip GameOfLife-Windows/
-
-          tar czf ../GameOfLife-Linux.tar.gz GameOfLife-Linux/
+          cd ../linux
+          tar -czf ../GameOfLife-Linux.tar.gz .
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
