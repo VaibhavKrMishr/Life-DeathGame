@@ -15,53 +15,53 @@ permissions:
   contents: write
 
 jobs:
-build-windows:
-  name: Build Windows
-  runs-on: windows-latest
+  build-windows:
+    name: Build Windows
+    runs-on: windows-latest
 
-  steps:
-    - name: Checkout
-      uses: actions/checkout@v5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
 
-    - name: Setup CMake
-      uses: lukka/get-cmake@latest
+      - name: Setup CMake
+        uses: lukka/get-cmake@latest
 
-    - name: Debug CMake environment
-      shell: pwsh
-      run: |
-        Write-Host "CMAKE_POLICY_VERSION_MINIMUM = [$env:CMAKE_POLICY_VERSION_MINIMUM]"
-        Write-Host "CMake version:"
-        cmake --version
-        Write-Host "Workflow files:"
-        Get-ChildItem -Path .github/workflows -Recurse
-        Write-Host "Searching workflow files:"
-        Get-ChildItem -Path .github/workflows -Recurse -File | Select-String "CMAKE_POLICY_VERSION_MINIMUM"
+      - name: Debug CMake environment
+        shell: pwsh
+        run: |
+          Write-Host "CMAKE_POLICY_VERSION_MINIMUM = [$env:CMAKE_POLICY_VERSION_MINIMUM]"
+          Write-Host "CMake version:"
+          cmake --version
+          Write-Host "Workflow files:"
+          Get-ChildItem -Path .github/workflows -Recurse
+          Write-Host "Searching workflow files:"
+          Get-ChildItem -Path .github/workflows -Recurse -File | Select-String "CMAKE_POLICY_VERSION_MINIMUM"
 
-    - name: Configure CMake
-      shell: pwsh
-      env:
-        CMAKE_POLICY_VERSION_MINIMUM: "3.5"
-      run: |
-        Write-Host "Using CMAKE_POLICY_VERSION_MINIMUM = [$env:CMAKE_POLICY_VERSION_MINIMUM]"
-        cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Configure CMake
+        shell: pwsh
+        env:
+          CMAKE_POLICY_VERSION_MINIMUM: "3.5"
+        run: |
+          Write-Host "Using CMAKE_POLICY_VERSION_MINIMUM = [$env:CMAKE_POLICY_VERSION_MINIMUM]"
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 
-    - name: Build
-      run: cmake --build build --config Release --parallel
+      - name: Build
+        run: cmake --build build --config Release --parallel
 
-    - name: Run tests
-      run: ctest --test-dir build -C Release --output-on-failure
+      - name: Run tests
+        run: ctest --test-dir build -C Release --output-on-failure
 
-    - name: Package Windows
-      shell: pwsh
-      run: |
-        New-Item -ItemType Directory -Force -Path artifacts
-        Copy-Item "build/Release/GameOfLife.exe" "artifacts/GameOfLife-Windows.exe"
+      - name: Package Windows
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path artifacts
+          Copy-Item "build/Release/GameOfLife.exe" "artifacts/GameOfLife-Windows.exe"
 
-    - name: Upload Windows artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: GameOfLife-Windows
-        path: artifacts/GameOfLife-Windows.exe
+      - name: Upload Windows artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: GameOfLife-Windows
+          path: artifacts/GameOfLife-Windows.exe
 
   build-linux:
     name: Build Linux
