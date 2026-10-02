@@ -12,7 +12,21 @@ A production-quality implementation of Conway's Game of Life in modern C++20 usi
 - **Serialization**: JSON based save/load using `nlohmann/json`.
 - **UI Overlay**: On-screen real-time statistics (FPS, Generation, Alive Cell count).
 
-## Dependencies
+## 🎮 Download & Play (No Build Required)
+
+Don't want to install CMake or compile anything? Just grab a pre-built binary:
+
+1. Go to the [**Releases**](https://github.com/VaibhavKrMishr/Life-DeathGame/releases) page
+2. Download the zip for your platform:
+   - **Windows**: `GameOfLife-Windows.zip` — extract and double-click `GameOfLife.exe`
+   - **Linux**: `GameOfLife-Linux.tar.gz` — extract, `chmod +x GameOfLife`, then `./GameOfLife`
+3. That's it! No CMake, no compiler, no dependencies to install.
+
+> **Note:** Releases are automatically built via GitHub Actions on every version tag.
+
+---
+
+## Dependencies (for building from source)
 - C++20 Compiler (GCC 10+, Clang 10+, or MSVC)
 - CMake 3.20+
 - SFML 2.6 (Fetched automatically via FetchContent)
