@@ -8,17 +8,20 @@ on:
     branches: [main]
 
 permissions:
-  contents: write          # needed for creating releases
+  contents: write
 
 jobs:
   # ─────────────────────────────────────────────
-  #  Windows Build
+  # Windows Build
   # ─────────────────────────────────────────────
   build-windows:
     runs-on: windows-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Setup CMake
         uses: lukka/get-cmake@latest
@@ -32,28 +35,30 @@ jobs:
       - name: Package Windows release
         shell: pwsh
         run: |
-          # Create the package directory
           New-Item -ItemType Directory -Force -Path "package/GameOfLife-Windows"
 
-          # Copy the executable (MSVC puts it under Release/)
-          Copy-Item "build/Release/GameOfLife.exe" "package/GameOfLife-Windows/" -ErrorAction SilentlyContinue
-          # Fallback: if the exe is not under Release/ (depends on generator)
-          if (-not (Test-Path "package/GameOfLife-Windows/GameOfLife.exe")) {
-            $exe = Get-ChildItem -Path "build" -Filter "GameOfLife.exe" -Recurse | Select-Object -First 1
-            if ($exe) { Copy-Item $exe.FullName "package/GameOfLife-Windows/" }
+          # Find executable regardless of generator/output directory
+          $exe = Get-ChildItem -Path "build" -Filter "GameOfLife.exe" -Recurse |
+                 Select-Object -First 1
+
+          if (-not $exe) {
+            Write-Error "GameOfLife.exe was not found!"
+            exit 1
           }
 
-          # Copy all DLLs from the build tree (SFML, OpenAL, etc.)
-          Get-ChildItem -Path "build" -Filter "*.dll" -Recurse | ForEach-Object {
-            Copy-Item $_.FullName "package/GameOfLife-Windows/" -ErrorAction SilentlyContinue
-          }
+          Copy-Item $exe.FullName "package/GameOfLife-Windows/"
+
+          # Copy DLLs
+          Get-ChildItem -Path "build" -Filter "*.dll" -Recurse |
+            ForEach-Object {
+              Copy-Item $_.FullName "package/GameOfLife-Windows/" -Force
+            }
 
           # Copy assets
           if (Test-Path "assets") {
             Copy-Item -Recurse "assets" "package/GameOfLife-Windows/assets"
           }
 
-          # Add a simple launcher README
           @"
           ===================================
             Conway's Game of Life
@@ -82,14 +87,18 @@ jobs:
           name: GameOfLife-Windows
           path: package/GameOfLife-Windows/
 
+
   # ─────────────────────────────────────────────
-  #  Linux Build
+  # Linux Build
   # ─────────────────────────────────────────────
   build-linux:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Setup CMake
         uses: lukka/get-cmake@latest
@@ -98,9 +107,15 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-            libx11-dev libxrandr-dev libxcursor-dev \
-            libxi-dev libudev-dev libgl1-mesa-dev \
-            libfreetype-dev libopenal-dev libvorbis-dev \
+            libx11-dev \
+            libxrandr-dev \
+            libxcursor-dev \
+            libxi-dev \
+            libudev-dev \
+            libgl1-mesa-dev \
+            libfreetype-dev \
+            libopenal-dev \
+            libvorbis-dev \
             libflac-dev
 
       - name: Configure CMake
@@ -112,8 +127,19 @@ jobs:
       - name: Package Linux release
         run: |
           mkdir -p package/GameOfLife-Linux
+
+          if [ ! -f build/GameOfLife ]; then
+            echo "ERROR: build/GameOfLife was not found!"
+            echo "Build directory contents:"
+            find build -maxdepth 3 -type f
+            exit 1
+          fi
+
           cp build/GameOfLife package/GameOfLife-Linux/
-          cp -r assets package/GameOfLife-Linux/ 2>/dev/null || true
+
+          if [ -d assets ]; then
+            cp -r assets package/GameOfLife-Linux/
+          fi
 
           cat > package/GameOfLife-Linux/README.txt << 'EOF'
           ===================================
@@ -124,10 +150,7 @@ jobs:
             chmod +x GameOfLife
             ./GameOfLife
 
-          You may need to install SFML runtime libraries:
-            Ubuntu/Debian: sudo apt install libsfml-graphics2.6 libsfml-window2.6 libsfml-system2.6
-            Fedora:        sudo dnf install SFML
-            Arch:          sudo pacman -S sfml
+          You may need to install SFML runtime libraries.
 
           Controls:
             Space         - Play / Pause
@@ -150,13 +173,18 @@ jobs:
           name: GameOfLife-Linux
           path: package/GameOfLife-Linux/
 
+
   # ─────────────────────────────────────────────
-  #  Create GitHub Release (on version tags only)
+  # Create GitHub Release
   # ─────────────────────────────────────────────
   release:
     if: startsWith(github.ref, 'refs/tags/v')
-    needs: [build-windows, build-linux]
+    needs:
+      - build-windows
+      - build-linux
+
     runs-on: ubuntu-latest
+
     steps:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
@@ -166,7 +194,9 @@ jobs:
       - name: Zip platform packages
         run: |
           cd artifacts
+
           zip -r ../GameOfLife-Windows.zip GameOfLife-Windows/
+
           tar czf ../GameOfLife-Linux.tar.gz GameOfLife-Linux/
 
       - name: Create GitHub Release
