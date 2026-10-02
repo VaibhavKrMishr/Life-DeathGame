@@ -20,7 +20,7 @@ events:
     names:
       - "uname"
     candidate_directories:
-      - "/home/vaibhav/.gemini/antigravity-ide/bin/"
+      - "/home/vaibhav/anaconda3/condabin/"
       - "/home/vaibhav/.cargo/bin/"
       - "/home/vaibhav/.bun/bin/"
       - "/usr/local/sbin/"
@@ -31,9 +31,11 @@ events:
       - "/usr/bin/site_perl/"
       - "/usr/bin/vendor_perl/"
       - "/usr/bin/core_perl/"
+      - "/home/vaibhav/.antigravity-ide/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts/"
+      - "/home/vaibhav/.antigravity-ide/extensions/vscjava.vscode-java-debug-0.59.0-universal/bundled/scripts/noConfigScripts/"
       - "/bin/"
     searched_directories:
-      - "/home/vaibhav/.gemini/antigravity-ide/bin/uname"
+      - "/home/vaibhav/anaconda3/condabin/uname"
       - "/home/vaibhav/.cargo/bin/uname"
       - "/home/vaibhav/.bun/bin/uname"
       - "/usr/local/sbin/uname"
@@ -41,7 +43,7 @@ events:
     found: "/usr/bin/uname"
     search_context:
       ENV{PATH}:
-        - "/home/vaibhav/.gemini/antigravity-ide/bin"
+        - "/home/vaibhav/anaconda3/condabin"
         - "/home/vaibhav/.cargo/bin"
         - "/home/vaibhav/.bun/bin"
         - "/usr/local/sbin"
@@ -52,17 +54,8 @@ events:
         - "/usr/bin/site_perl"
         - "/usr/bin/vendor_perl"
         - "/usr/bin/core_perl"
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:218 (message)"
-      - "CMakeLists.txt:16 (project)"
-    message: |
-      The system is: Linux - 7.1.4-arch1-1 - x86_64
-...
-
----
-events:
+        - "/home/vaibhav/.antigravity-ide/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts"
+        - "/home/vaibhav/.antigravity-ide/extensions/vscjava.vscode-java-debug-0.59.0-universal/bundled/scripts/noConfigScripts"
   -
     kind: "message-v1"
     backtrace:

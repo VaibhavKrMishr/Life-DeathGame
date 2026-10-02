@@ -81,6 +81,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake"
   "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake"
   "/usr/share/cmake/Modules/CMakeTestCompilerCommon.cmake"
+  "/usr/share/cmake/Modules/CMakeUnixFindMake.cmake"
   "/usr/share/cmake/Modules/CPack.cmake"
   "/usr/share/cmake/Modules/CPackComponent.cmake"
   "/usr/share/cmake/Modules/CheckCSourceCompiles.cmake"
@@ -187,6 +188,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake/Modules/Platform/Linux-Initialize.cmake"
   "/usr/share/cmake/Modules/Platform/Linux.cmake"
   "/usr/share/cmake/Modules/Platform/UnixPaths.cmake"
+  "/usr/share/cmake/Modules/SelectLibraryConfigurations.cmake"
   "/usr/share/cmake/Modules/WriteBasicConfigVersionFile.cmake"
   "/usr/share/cmake/Templates/CPackConfig.cmake.in"
   )

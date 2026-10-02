@@ -41,7 +41,7 @@ while(error_code AND number_of_tries LESS ${max_tries})
   endif()
   execute_process(
     COMMAND "/usr/bin/git"
-            clone --no-checkout --config "advice.detachedHead=false" "https://github.com/SFML/SFML.git" "sfml-src"
+            clone --no-checkout --depth 1 --no-single-branch --config "advice.detachedHead=false" "https://github.com/SFML/SFML.git" "sfml-src"
     WORKING_DIRECTORY "/home/vaibhav/Desktop/Projects/LifeAndDeathGame/build/_deps"
     RESULT_VARIABLE error_code
     ${maybe_show_command}
