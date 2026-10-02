@@ -20,8 +20,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup CMake
+        uses: lukka/get-cmake@latest
+
       - name: Configure CMake
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 
       - name: Build
         run: cmake --build build --config Release -j 4
@@ -32,7 +35,7 @@ jobs:
           # Create the package directory
           New-Item -ItemType Directory -Force -Path "package/GameOfLife-Windows"
 
-          # Copy the executable
+          # Copy the executable (MSVC puts it under Release/)
           Copy-Item "build/Release/GameOfLife.exe" "package/GameOfLife-Windows/" -ErrorAction SilentlyContinue
           # Fallback: if the exe is not under Release/ (depends on generator)
           if (-not (Test-Path "package/GameOfLife-Windows/GameOfLife.exe")) {
@@ -40,14 +43,10 @@ jobs:
             if ($exe) { Copy-Item $exe.FullName "package/GameOfLife-Windows/" }
           }
 
-          # Copy SFML DLLs from the build tree
+          # Copy all DLLs from the build tree (SFML, OpenAL, etc.)
           Get-ChildItem -Path "build" -Filter "*.dll" -Recurse | ForEach-Object {
             Copy-Item $_.FullName "package/GameOfLife-Windows/" -ErrorAction SilentlyContinue
           }
-
-          # Copy the openal32.dll that SFML depends on
-          $openal = Get-ChildItem -Path "build" -Filter "openal32.dll" -Recurse | Select-Object -First 1
-          if ($openal) { Copy-Item $openal.FullName "package/GameOfLife-Windows/" }
 
           # Copy assets
           if (Test-Path "assets") {
@@ -92,6 +91,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup CMake
+        uses: lukka/get-cmake@latest
+
       - name: Install system dependencies
         run: |
           sudo apt-get update
@@ -102,7 +104,7 @@ jobs:
             libflac-dev
 
       - name: Configure CMake
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 
       - name: Build
         run: cmake --build build --config Release -j $(nproc)
